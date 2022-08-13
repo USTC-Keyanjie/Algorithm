@@ -5,26 +5,36 @@ typedef unsigned long long ull;
 
 class Solution {
 public:
-    char repeatedCharacter(string s) {
-        vector<int> record(26, 0);
-        for (char c : s) {
-            int idx = c - 'a';
-            if (record[idx] == 0) {
-                record[idx]++;
-            } else {
-                return c;
-            }
-        }
+    int function() {
         return 0;
     }
 };
+
+void input_int_array(vector<int> &arr, string str) {
+    string cache;
+    for (char c: str) {
+        switch (c) {
+            case '[':
+                cache = "";
+                break;
+            case ',':
+                arr.push_back(stoi(cache));
+                cache = "";
+                break;
+            case ']':
+                arr.push_back(stoi(cache));
+                break;
+            default:
+                cache += c;
+                break;
+        }
+    }
+}
+
 int main() {
 //    freopen("input.txt", "r", stdin);
     Solution s;
-    vector<string> words{"abz", "aez"};
-    vector<int> res = s.findSubstring(
-            "aczadz",
-            words
-    );
+    auto res = s.function();
+    cout << res << endl;
     return 0;
 }
